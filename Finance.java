@@ -2,31 +2,23 @@ package saimen;
 
 import java.util.Scanner;
 
-public class Finance extends BakeryDetails{
-	
+public class Finance { //inheritance
 	Scanner scan = new Scanner(System.in);
-	
 	private double totalsales;
-	private double totalcost;
-	private double workersSalary;
-	private double expenses;
 	private double profit;
 	private double netincome;
 	
 
 	Finance() {
-		System.out.println("***Finance System***");
-		Sales();
-		NetIncome();
-		System.out.println();
-		}
-	
-	public void Sales() {
+		System.out.println("-------------Finance System-----------");
+		System.out.println("Please key in the information needed.");
 		System.out.print("\nTotal Sales per month :  RM ");
 		this.totalsales = scan.nextDouble();
-		System.out.print("\nTotal Stock cost per month :  RM ");
-		this.totalcost = scan.nextDouble();
-		this.profit = this.totalsales - this.totalcost;
+		Payment g = new Inventoryexp();//interface
+		System.out.print("\nTotal Cost Inventory per month :  RM ");
+		System.out.print(g.payment());
+		double cost = g.payment();
+		this.profit = this.totalsales - cost;
 		if(profit<0) {
 			System.out.printf("\nFinancial Loss : RM %.2f" , this.profit);
 			System.out.println();
@@ -39,35 +31,36 @@ public class Finance extends BakeryDetails{
 			System.out.printf("\nProfit : RM %.2f" , this.profit);
 			System.out.println();
 		} 
-	}
-	
-	public void NetIncome() {
+		print();
 		System.out.println();
-
+		}
+	
+	public void print() {
+		Payment e = new Financeexp();//interface
 		System.out.print("\nTotal Expenses per month :  RM ");
-		this.expenses = scan.nextDouble();
-		System.out.print("\nTotal Employees' salary per month :  RM ");
-		this.workersSalary = scan.nextDouble();
-		this.netincome = this.profit - this.workersSalary - this.expenses;
+		System.out.print(e.payment());
+		double expenses = e.payment();
+		
+		Payment f = new Workersexp();//interface
+		double salary = f.payment();
+		
+		Payment g = new Inventoryexp();//interface
+		double cost = g.payment();
+		
+		this.netincome = this.profit - expenses - cost - salary;
 		if(netincome<0) {
-			System.out.printf("\nNet Income : RM %.2f" , this.netincome);
-			System.out.println();
+			System.out.printf("\nNet Income(loss) : RM %.2f" , this.netincome);
+			System.out.println("\n");
 		}
 		else if(netincome==0) {
-			System.out.printf("\nNet Income : RM %.2f" , this.netincome);
-			System.out.println();
+			System.out.printf("\nNet Income(equal) : RM %.2f" , this.netincome);
+			System.out.println("\n");
 		}
 		else{
-			System.out.printf("\nNet Income : RM %.2f" , this.netincome);
-			System.out.println();
+			System.out.printf("\nNet Income(profit) : RM %.2f" , this.netincome);
+			System.out.println("\n");
 		} 
 		
-		
-		
-	}
-
-
-	public void printinfo() {
 		
 		
 	}
