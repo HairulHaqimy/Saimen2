@@ -2,25 +2,32 @@ package saimen;
 
 import java.util.Scanner;
 
-public class BakeryMenu extends BakeryDetails {
-
+public class BakeryMenu extends BakeryDetails{//inheritance
 	Scanner scan = new Scanner(System.in);
 	private String category;
-	private String item;
-	private String flavour;
+	protected String item;
+	protected String flavour;
 	private String madeIn;
-	private double price;
+	protected double price;
 	private int choice;
 	
 	BakeryMenu(){
-	    System.out.println("***Shop Menu***");
-		System.out.println("Select item : ");
+    System.out.println("---Bakery Menu System---");
+	System.out.println("\nThere are 6 category of food.");
+	do {
+	System.out.println("\n1-Cake \n2-Bread \n3-Cookies \n4-Pizza \n5-Muffin \n6-Donut ");
+	printinfo();
+	}while(choice == 1); 
+	}
+
+	public void printinfo() { // polymorphism
+		System.out.println("Please select the menu to check details: ");
 		int option = scan.nextInt();
 		switch(option) {
-	
+		
 		case 1 : this.category = "Cake";
 		 System.out.println("*** "+ category +" ***");
-        this.item = "Hokkaido Cake";
+		 this.item = "Hokkaido Cake";
 	     System.out.println("Brand  : " + item);
 	     this.flavour = "Chocolate";
 	     System.out.println("Flavour     : " + flavour);
@@ -47,8 +54,8 @@ public class BakeryMenu extends BakeryDetails {
 		  
 		  
 		 case 3 : this.category = "Cookies";
- 		  System.out.println("*** "+category+" ***");
- 		  this.item = "Red Velvet Cookies";
+		  System.out.println("*** "+category+" ***");
+		  this.item = "Red Velvet Cookies";
 		  System.out.println("Brand       : " + this.item);
 		  this.flavour = "Red Velvet";
 		  System.out.println("Flavour     : " + this.flavour);
@@ -100,40 +107,18 @@ public class BakeryMenu extends BakeryDetails {
 		  System.out.printf("Price       : RM %.2f" , this.price);
 		  break;
 
-}
-System.out.println("\n1-Continue Checking Details \n2-Exit");
-choice = scan.nextInt();
-if(choice != 1 && choice != 2) {
-	System.out.println("Choose only \n1-Continue Checking Details \n2-Exit ");
-	choice = scan.nextInt();
-
-}while(choice == 1); {
-	System.out.println("Thankyou for visiting " +super.name);
-}
-}
-
-public String item() {
-	return item;
-}
-public String flavour() {
-	return flavour;
-}
-
-public String madeIn() {
-	return madeIn;
-}
-
-public double price() {
-	return price;
-}
-
-@Override
-public void printinfo() {
-	// TODO Auto-generated method stub
+		
+		}
+		System.out.println("\n1-Continue Checking Details \n2-Exit");
+		choice = scan.nextInt();
+		if(choice != 1 && choice != 2) {
+			System.out.println("Choose only \n1-Continue Checking Details \n2-Exit ");
+			choice = scan.nextInt();
+		}
+		
+	}
+	
 	
 }
-
-}
-	
 	
 	
