@@ -1,24 +1,18 @@
 package saimen;
 
-public class Advertisement extends BakeryDetails { //inheritance
+public class Ads extends BakeryDetails { //inheritance
 	private String titleAd;
 	private String date;
 	
-	public Advertisement(){
-		printinfo();
-	}
+	
 	
 	public void printinfo() {//polymorphism
-		System.out.println("*****************HOT PROMOTION**************");
-		Advertisement e = new Advertisement();//interface
-		System.out.println(titleAd + "Cash Voucher RM " + ((Advertisement) e).Advertisement() + " in purchasement more than RM 500.00");
+		System.out.println("---HOT PROMOTION---");
+		Payment e = new AdvertisementandMarketingpromo();//interface
+		System.out.println(titleAd + "Cash Voucher RM " + e.payment() + " in purchasement more than RM 500.00");
 	}
 	
-	private String Advertisement() {
-		return null;
-	}
-
-	public void settitleAd(String titleAd) { // setter getter method (encapsulation)
+	public void settitleAd(String titleAd) { // setter getter method //encapsulation
 		this.titleAd = titleAd;
 	}
 	
